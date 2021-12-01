@@ -3,16 +3,303 @@ Gravity sort
 
 
 
-![](..\src\gravitysort.png)
+![](\img\gravitysort.png)
 
 
 
-Implementacao no software
+Introdução
 ---------
 
+Quando queremos encontrar algo, normalmente começamos a procurar nos arredeores e ir expandindo o raio de busca a partir do primeiro local em que a busca foi iniciada. Um perfeito exemplo disso é quando queremos encontrar nosso celular: começamos a buscar nos bolsos de nossas roupas e vamos expandindo a área de busca, procurando na bolsa ou na mochila, depois no cômodo em que estamos, em seguida em outros cômodos próximos a esse mesas e continuaremos a procurar nos cômodos mais distantes até encontrar (teoricamente, nunca perderíamos nada).
+
+Mas e se você tivesse um móvel onde todos que entram na sua cada podem deixem seus celuares (de preferência algum com uma tomada por perto ou quem sabe uma base de carregamento), não seria mais simples de procurar e consumiria menos tempo até encontrar o seu celular?
+
+Agora imagine que você queira ligar pra alguém através do seu celular e, que já aderiu a ideia do parágrafo anterior, logo tudo o que precisa fazer é ir até o móvel e pegar seu celular. Ao tê-lo em mãos, você o desbloqueia e acessa sua agenda de contatos, mas percebe que seus contatos não estão em ordem forçando você a olhar um por um até encontrar o contato desejado.
+
+Fica claro que organização, e principalmente ordenação, são de vital importância para as atividades mais rotineiras e simples que executamos. Entretanto em um mundo onde sistemas e serviços digitais são cada vez mais frequentes, a ordenação vai muito além de encontrar um contato rápido. Onde gigantescos bancos de dados armazenam desde endereços até dados de pacientes hospitalizados, ordenar adequeada e eficientemente eses diversos tipos de dados significamuito mais do que economizar tempo, também significa evitar o trânsito desviando de uma via congestionada e evitar óbitos garantindo que um paciente em estado grave chegue a tempo no hospital para ser tratado.
+
+E embora cruciais e indispensáveis, aqueles que mantém essa gigantesca infraestrutura digital que permeia praticamente todas as nossas atividades, os algoritmos de ordenação, são, por vezes, considerávelmente simples.
+
+Introdução
+---------
+
+Pensando novamente na lista telefônica, considere o seguinte: você possui 7 contatos na sua agenda (sim, você é bem seletivo com relação ao salvar o número de outras pessoas) e que cada um deles começam com uma letra diferente. A conclusão mais óbvia seria "*pensar na ordem alfabética e colocá-los em ordem*", certo? Mas e se, ao invés de letras, pensarmos em letras que tal em números? 
+
+??? Pergunta
+
+Considerando que os contatos mencionados a lista de contatos abaixo, qual seria o *array* numérico correspondente?
+
+`[Peach, Yoshi, Mario, Daisy, Toad, Luigi, Wario]`
+
+::: Gabarito
+
+Provavelmente você utilizou a posição das iniciais no alfabeto para realizar a conversão, certo?
+
+![](img/alphabet-to-numeric.png)
+
+Dessa forma a conversão da lista de contatos para um *array* numérico pode ser feita de seguinte forma:
+
+| Contatos | Inicial do Nome | Número |
+| -------- | --------------- | ------ |
+| Peach    | P (16ª letra)   | 16     |
+| Yoshi    | Y (25ª letra)   | 25     |
+| Mario    | M (13ª letra)   | 13     |
+| Daisy    | D (4ª letra)    | 4      |
+| Toad     | T (20ª letra)   | 20     |
+| Luigi    | L (12ª letra)   | 12     |
+| Wario    | W (23ª letra)   | 23     |
+
+Logo, a lista de contatos se torna o seguinte *array* numérico: `[16, 25, 13, 4, 20, 12, 23]`.
+
+:::
+
+???
+
+Um Novo Ponto de Vista
+---------
+
+Ao invés de pensar no *array* de contatos simplesmente como uma lista de valores, considere uma representação visual do mesmo. Uma forma consideravelmente simples seria transformá-lo em um gráfico de barras onde cada valor é representado pela altura de cada uma das barras.
+
+??? Exercício 1
+
+Considerando o *array* de valores obtido anteriormente como  o gráfico abaixo, responda:
+
+![](img\list-bar-unit.jpg)
+
+Em termos visuais, de que forma poderíamos ordenar os valores do *array* numérico?
+
+::: Gabarito
+Poderíamos ordenar os valores mudando as barras de posição, asté se obtivesse a seguinte representação:
+
+![](img\list-bar-unit-ordened.jpg)
+
+:::
+
+???
+
+Se pararmos para pensar, **todos** os algoritmos estudados até agora realizam esse tipo de operação. De uma forma ou de outra, as barras são trocadas de lugar umas com as outras até se obter uma sequência ordenada.
 
 
-Apos a apresentacao, tem-se algumas conclusoes a respeito do Gravity sort:
+
+??? Exercício 2
+
+Considerando o *array* de valores obtido anteriormente como  o gráfico abaixo, responda:
+
+![](img\list-bar-frag.jpg)
+
+Em termos visuais, de que forma poderíamos ordenar os valores do *array* numérico?
+
+::: Gabarito
+
+Poderíamos ordenar os valores mudando os fragmentos de posição, asté se obtivesse a seguinte representação:
+
+![](img\list-bar-frag-ordened.jpg)
+
+:::
+
+???
+
+Se pararmos para pensar, **nenhum** dos algoritmos estudados até agora realizam esse tipo de operação. Definitivamente não é a forma mais intuitiva de se abordar um problema de ordenação, mas não se pode negar sua efetividade já que o *array* resultante está correto.
+
+??? Checkpoint
+
+Considernado a segunda forma de ordenação, qual a relação entre a quantidade de fragmentos de uma mesma cor, antes e depois da ordenação ter sido realizada? É necessário mudar todos os fragmentos de lugar?
+
+::: Gabarito
+A quantidade de fragmentos de uma mesma cor se preserva ao longo da operação. Além disso, nem todos os fragmentos precisam ser movidos (basta reparar nas 3 primeiras cores de fragmentos ou ainda a última barra na qual o único fragmento modificado é o do topo).
+:::
+
+???
+
+Portanto, fica claro que, uma forma possível, ainda que menos usual, de se organizar um *array* numérico é tornando cada valor como uma pilha de fragmentos. Entretanto para que esse método funcione é necessário que cada um dos fragmentos de qualquer uma das pilhas possuam a mesma "altura", ou seja, que a divisão da barra em pilhas seja tal que não sobre fragmentos de tamanhos diferentes na mesma linha.
+
+Isso significa que necessitamos do MDC (múltiplo divisor comum) dos valores encontrados nessa lista, obtendo os múltiplos de cada um dos valores e posteriormente obter o MDC deles. Entretanto cada novo valor inserido nessa lista potencialmente poderia alterar o MDC atual o que faria com que um algoritmo espec;ifico acessasse todos os valores até calcular o novo MDC, fazendo com que haja um consumo de tempo e recursos desnecessário.
+
+Felizmente, exite um MDC global, ou seja, um número que é diivsor de todos os demais e, portanto, não só independe de quais e quantos números presentes no *array* como também dispensa refazer a busca por um novo MDC. 
+
+??? Reflexão
+
+Se ainda não veio nada à sua mente, basta pensar na definição básica de números primos, o que ela diz?  
+
+::: Gabarito
+
+![](img\prime-numbers.png)
+
+:::
+
+???
+
+Logo, basta construir uma pilha de fragmentos de tamanho `1` para cada um dos valores da lista de contatos, o que se resume a criar um *array* do tamanho de cada valor da lista e preenchê-los com `1`.
+
+!!! Aviso
+Para facilitar a visualização dos *arrays* use a função fornecida abaixo:
+
+````c
+void display_array(int *input, int n) {
+    printf("[ ");
+    for(int i = 0; i < n; i++) {
+        printf("%i", input[i]);
+        if (i != n - 1) {
+            printf(", ");
+        }
+    }
+    printf(" ]");
+}
+````
+
+!!!
+
+
+
+??? Exercício
+
+Crie uma função que receba um *array* de inteiros e, para cada um dos valores presentes neste, exiba no terminal um *array* preenchido com `1`.
+
+::: Gabarito
+
+````C
+void unit_stack(int *input, int n) {
+    int val;
+    for(int i = 0; i < n; i++) {
+        val = input[i];
+        int stack[val];
+        for (int j = 0; j < val; j++) {
+            stack[j] = 1;
+        }
+        display_array(stack, val);
+        printf("\n");
+    }
+}
+````
+
+:::
+
+???
+
+Nada impossível por enquanto, certo? Você provavelmente obteve o seguinte *output*:
+
+````c
+[ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
+[ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
+[ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
+[ 1, 1, 1, 1 ]
+[ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
+[ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
+[ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
+````
+
+Mas parando pra pensar, é um pouco inconveniente ter que iniciar um *array* dentro de uma função pois ela se torna limitada ao escopo da mesma, impossibilitando realizar quaisquer outras operações posteriores. Seria muito mais interessante se esses vetores estivessem dentro de um outro o qual pudéssemos inicializar fora da função e apenas passá-lo como argumento. Ora, mas isso existe! Um vetor de vetores nada mais  é do que uma **matriz**!
+
+
+
+
+
+Primeiramente, uma matriz possui tamanho definido. isso significa que devemos inicializá-la sabendo a quantidade de linhas e colunas necessárias. Claro que poderíamos fazer isso utilizando algum valor máximo definido globalmente (algo como `MAX_ROW` e `MAX_COL`), mas lembre-se que memória é um recurso valioso e limitado, então devemos usar somente o mínimo necessário.
+
+
+
+Podemos novamente criar uma representação visual, desta vez do *output* obtido no exercício anterior. Ao invés de uma lista de `1` pense como sequências de ⚫ enfileiradas, como ilustra a imagem a abaixo
+
+
+| `n`  | *output*                  |
+| ---- | ------------------------- |
+| 16   | ⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫          |
+| 25   | ⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫ |
+| 13   | ⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫             |
+| 4    | ⚫⚫⚫⚫                      |
+| 20   | ⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫      |
+| 12   | ⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫              |
+| 23   | ⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫   |
+
+Agora imagine a mesma disposição de ⚫ mas desta vez preenchendo uma grade quadriculada, onde cada bolinha ocupa um dos espaços da grade:
+
+| `n`  | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10   | 11   | 12   | 13   | 14   | 15   | 16   | 17   | 18   | 19   | 20   | 21   | 22   | 23   | 24   | 25   |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| 16   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    |      |      |      |      |      |      |      |      |      |
+| 25   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    |
+| 13   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    |      |      |      |      |      |      |      |      |      |      |      |      |
+| 4    | ⚫    | ⚫    | ⚫    | ⚫    |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
+| 20   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    |      |      |      |      |      |
+| 12   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    |      |      |      |      |      |      |      |      |      |      |      |      |      |
+| 23   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    |      |      |
+
+
+Fica claro, portanto, que a quantidade de **linhas** `r` tem relação direta com a quantidade de valores do vetor de contatos, uma vez que cada linha. Já a quantidade de **colunas** `c` tem relação direta com o maior valor do vetor inicial. 
+
+??? Exercício
+
+implemente duas funções `matrix_r` e `matrix_c` que recebam um vetor de inteiros `v` e seu tamanho `n` e retornem os valores de `r` e `c`, respectivamente:
+
+::: Gabarito
+
+```c
+int matrix_r(int *input, int n){
+	int c = 0;
+	for (int i = 0; i < n; i++) {
+        c ++;
+    }
+	return n;
+}
+```
+
+Note que em um contexto geral, a função `matrix_r` resume-se a uma função `len`.
+
+```c
+int matrix_c(int *input, int n) {
+	int f = 0;
+	for (int i = 0; i < n; i++) {
+        if (input[i] > f) {
+            f = input[i];
+		}
+    }
+	return f;
+}
+```
+
+Note que em um contexto geral, a função `matrix_c` resume-se a uma função `max`.
+
+:::
+
+???
+
+
+
+
+
+Um Novo Ponto de Vista
+---------
+
+A tarefa anterior foi consider
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+u
+
+
+
+Apos a apresentação, tem-se algumas conclusoes a respeito do Gravity sort:
 
 1. **Alto desempenho** quando utilizado em algum hardware.
 2. **Dificuldade** de implementacao computacional.
@@ -34,7 +321,7 @@ Portanto, a largura da estrutura define o comprimento **c** de cada fileira, ao 
 
 
 
-Uma vez pronta a esturua podemos adicionar as contas (representadas por ⚫) deixando ou não espaços entre elas (representados por ◯). Por simplicidade, será considerado que um espaço possui comprimento contante e igual ao de uma conta, já que, dessa forma, será  fácil compreender a distância entre duas contas
+Uma vez pronta a estrutura podemos adicionar as contas (representadas por ⚫) deixando ou não espaços entre elas (representados por ◯). Por simplicidade, será considerado que um espaço possui comprimento contante e igual ao de uma conta, já que, dessa forma, será  fácil compreender a distância entre duas contas
 
 
 
