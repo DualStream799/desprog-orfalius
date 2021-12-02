@@ -350,19 +350,21 @@ Devemos tudo o que sabemos e conhecemos àqueles que vieram antes de nós. Se h�
 
 Isso sempre ocorreu e continua ocorrendo. Desde a antiguidade, enquanto Platão ainda olhava para vultos na parede de uma caverna e Pitágoras ainda media sombras de pirâmides mal sabiam eles que teriam filhos com nomes tão distintos para a época e tão importantes para as demais épocas.
 
+|       Platão        |       Pitágoras        |
+| :-----------------: | :--------------------: |
 | ![](img\platao.jpg) | ![](img\pitagoras.jpg) |
-| ------------------- | ---------------------- |
-| Pai da Filosofia    | Pai da Matemática      |
+|  Pai da Filosofia   |   Pai da Matemática    |
 
 Já na era moderna, outro indivíduo que dispensa apresentações resume bem essa ideia através da seguinte frase:
 
 >  Se eu vi mais longe, foi por estar sobre ombros de gigantes
 
-Apesar das diversas áreas na qual atuou, você provavelmente ouvui falar dele pela primeira vez por causa de uma maçã: Sir Isaac Newton.
+Apesar das diversas áreas na qual atuou, você provavelmente ouviu falar dele pela primeira vez por causa de uma maçã.
 
+|       Isaac Newton        |
+| :-----------------------: |
 | ![](img\isaac-newton.jpg) |
-| ------------------------- |
-| Pai da Física Moderna     |
+|   Pai da Física Moderna   |
 
 Hoje somos nós que os consideramos gigantes e é nos ombros deles que nos apoiamos para ver mais longe ainda. E por que não fazê-lo novamente nesse momento?
 
@@ -377,10 +379,6 @@ Vamos voltar para a representação de contas elaborada anteriormente, mas dessa
 | 20   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ◯    | ◯    | ◯    | ◯    | ◯    |
 | 12   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    |
 | 23   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ◯    | ◯    |
-
-
-
-
 
 ??? Exercício
 
@@ -425,9 +423,7 @@ Acabamos de desenvolver a teoria por trás do algoritmo de ordenação mais efic
 Da  
 ---------
 
-Mas... como implementamos  um botão para "ligar" a gravidade?
-
-Ao invés de irmos atrás das fórmulas da mecânica clássica, vamos pensar em termos de observações empíricas procedurais.
+Mas... como implementamos  um botão para "ligar" a gravidade? Ao invés de irmos atrás das fórmulas da mecânica clássica, vamos pensar em termos de observações empíricas procedurais.
 
 
 
@@ -435,7 +431,7 @@ Voltando para a representação de pilhas de fragmentos e considerando que a gra
 
 ![](img/list-bar-frag-rotated.jpg)
 
-A partir do momento que a gravidade é "ligada", é justo pensar que os fragmentos que possuem espaços vazios embaixo irão cair enquanto os que possuem outros fragmentos permanecerão no lugar. Na ocorrência de 
+A partir do momento que a gravidade é "ligada", é justo pensar que os fragmentos que possuem espaços vazios embaixo irão cair enquanto os que possuem outros fragmentossob eles permanecerão no lugar. Na ocorrência de 
 
 
 
