@@ -1,5 +1,3 @@
-
-
 Gravity sort
 ======
 
@@ -192,7 +190,7 @@ Do Vetor à Matriz
 
 Primeiramente, uma matriz possui tamanho definido. isso significa que devemos inicializá-la sabendo a quantidade de linhas e colunas necessárias. Claro que poderíamos fazer isso utilizando algum valor máximo definido globalmente (algo como `MAX_ROW` e `MAX_COL`), mas lembre-se que memória é um recurso valioso e limitado, então devemos usar somente o necessário.
 
-Podemos novamente criar uma representação visual, desta vez do *output* obtido no exercício anterior. Ao invés de uma lista de `1` pense como sequências de ⚫ enfileiradas, como ilustra a imagem a abaixo
+Podemos novamente criar uma representação visual, desta vez do *output* obtido no exercício anterior. Ao invés de uma lista de `1` pense como sequências de contas ⚫ enfileiradas, como ilustra a imagem a abaixo:
 
 
 | `n`  | *output*                  |
@@ -205,7 +203,7 @@ Podemos novamente criar uma representação visual, desta vez do *output* obtido
 | 12   | ⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫              |
 | 23   | ⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫   |
 
-Agora imagine a mesma disposição de ⚫ mas desta vez preenchendo uma grade quadriculada, onde cada bolinha ocupa um dos espaços da grade:
+Agora imagine a mesma disposição, mas desta vez preenchendo uma grade quadriculada, onde cada conta ocupa um dos espaços da grade:
 
 | `n`  | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10   | 11   | 12   | 13   | 14   | 15   | 16   | 17   | 18   | 19   | 20   | 21   | 22   | 23   | 24   | 25   |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -268,7 +266,7 @@ O passo seguinte é preencher a de maneira similar ao que fizemos ao preencher a
 
 Entretanto, atente-se ao fato que apenas preencher a matriz com `1`  não é suficiente, pois é possível que haja lixo de memória em elementos não preenchidos. Uma solução simples é inserir um novo valor de forma que este represente os "espaços vazios". Dessa forma iremos inicializar toda a região de memória alocada para a matriz, garantindo que nenhum lixo de memória seja perpetuado.
 
-Voltando a representação visual, podemos compreender um espaço vazio como ◯, dessa forma teríamos:
+Voltando a representação visual, podemos compreender um espaço vazio como a ausência de uma conta ◯, dessa forma teríamos:
 
 | `n`  | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10   | 11   | 12   | 13   | 14   | 15   | 16   | 17   | 18   | 19   | 20   | 21   | 22   | 23   | 24   | 25   |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -280,7 +278,7 @@ Voltando a representação visual, podemos compreender um espaço vazio como ◯
 | 12   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    |
 | 23   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ◯    | ◯    |
 
-Quanto ao valor que se refer à ◯, já que estamos utilizando `1` para locais ocupados, que tal `0` para os não ocupados? 
+Quanto ao valor que se refere à ◯, já que estamos utilizando `1` para locais ocupados, que tal `0` para os não ocupados? 
 
 ??? Exercício
 
@@ -352,27 +350,45 @@ Devemos tudo o que sabemos e conhecemos àqueles que vieram antes de nós. Se h�
 
 Isso sempre ocorreu e continua ocorrendo. Desde a antiguidade, enquanto Platão ainda olhava para vultos na parede de uma caverna e Pitágoras ainda media sombras de pirâmides mal sabiam eles que teriam filhos com nomes tão distintos para a época e tão importantes para as demais épocas.
 
-| ![](img\platao.png) | ![](img\pitagoras.png) |
+| ![](img\platao.jpg) | ![](img\pitagoras.jpg) |
 | ------------------- | ---------------------- |
 | Pai da Filosofia    | Pai da Matemática      |
 
-Outro indivíduo que dispensa apresentações já na era contemporânea, Isaac Newton resume bem essa ideia através da seguinte frase:
+Já na era moderna, outro indivíduo que dispensa apresentações resume bem essa ideia através da seguinte frase:
+
+>  Se eu vi mais longe, foi por estar sobre ombros de gigantes
+
+Apesar das diversas áreas na qual atuou, você provavelmente ouvui falar dele pela primeira vez por causa de uma maçã: Sir Isaac Newton.
+
+| ![](img\isaac-newton.jpg) |
+| ------------------------- |
+| Pai da Física Moderna     |
+
+Hoje somos nós que os consideramos gigantes e é nos ombros deles que nos apoiamos para ver mais longe ainda. E por que não fazê-lo novamente nesse momento?
+
+Vamos voltar para a representação de contas elaborada anteriormente, mas dessa vez pensando em uma grade vertical, isto é, que as sequências de contas estejam empilhadas, uma em cima das outras.
+
+| `n`  | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10   | 11   | 12   | 13   | 14   | 15   | 16   | 17   | 18   | 19   | 20   | 21   | 22   | 23   | 24   | 25   |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| 16   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    |
+| 25   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    |
+| 13   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    |
+| 4    | ⚫    | ⚫    | ⚫    | ⚫    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    |
+| 20   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ◯    | ◯    | ◯    | ◯    | ◯    |
+| 12   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    |
+| 23   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ◯    | ◯    |
 
 
 
-Se eu vi mais longe, foi por estar sobre ombros de gigantes
-
-Hoje somos nós que os consideramos gigantes e é nos ombros deles que nos apoiamos para ver mais longe ainda.
-
-Apesar das diversas áreas na qual atuou, você provavelmente ouvui falar dele pela primeira vez por causa de uma maçã, certo?
 
 
+??? Exercício
 
+Agora suponha que você tenha um botão que controla a gravidade () e nesse momento ela está "desligada". Ao apertar o botão e "ligar" a gravidade, qual a distribuição esperada das contas? Mais do que isso, se contarmos cada uma das fileiras de contas, uma a uma, como fica a sequência de valores?
 
+::: Gabarito
 
-
-
-Voltando a representação visual, podemos compreender um espaço vazio como ◯, dessa forma teríamos:
+A distribuição esperada é a seguinte:
 
 | `n`  | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10   | 11   | 12   | 13   | 14   | 15   | 16   | 17   | 18   | 19   | 20   | 21   | 22   | 23   | 24   | 25   |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -384,13 +400,42 @@ Voltando a representação visual, podemos compreender um espaço vazio como ◯
 | 20   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ◯    | ◯    |
 | 25   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    |
 
+Note que ao contar sequencialmente cada uma das fileiras de contas obtemos o vetor ordenado.
+
+:::
+
+???
+
+Por mais absurdo que possa parecer um botão que controle a gravidade, comprenda o que acabamos de fazer: através de uma única ação (a de apertar o botão), ordernamos o vetor inicialmente recebido. 
+
+??? Checkpoint
+
+Pensando em termos de complexidade, qual a complexidade dessa ordenação?
+
+::: Gabarito
+
+A complexidade é **O(1)**.
+
+:::
+
+???
+
+Acabamos de desenvolver a teoria por trás do algoritmo de ordenação mais eficiente já criado: o **gravity sort**.
+
+Da  
+---------
+
+Mas... como implementamos  um botão para "ligar" a gravidade?
+
+Ao invés de irmos atrás das fórmulas da mecânica clássica, vamos pensar em termos de observações empíricas procedurais.
 
 
 
+Voltando para a representação de pilhas de fragmentos e considerando que a gravidade está "desligada", vamos rotacionar 90° cada uma das caixas até que se obtenha a mesma configuração das fileiras de contas. 
 
-Mas... como implementamos "gravidade" ?
+![](img/list-bar-frag-rotated.jpg)
 
-
+A partir do momento que a gravidade é "ligada", é justo pensar que os fragmentos que possuem espaços vazios embaixo irão cair enquanto os que possuem outros fragmentos permanecerão no lugar. Na ocorrência de 
 
 
 
