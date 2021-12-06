@@ -10,15 +10,15 @@ Gravity sort
 Introdução
 ---------
 
-Quando queremos encontrar algo, normalmente começamos a procurar nos arredeores e ir expandindo o raio de busca a partir do primeiro local em que a busca foi iniciada. Um perfeito exemplo disso é quando queremos encontrar nosso celular: começamos a buscar nos bolsos de nossas roupas e vamos expandindo a área de busca, procurando na bolsa ou na mochila, depois no cômodo em que estamos, em seguida em outros cômodos próximos a esse mesas e continuaremos a procurar nos cômodos mais distantes até encontrar (teoricamente, nunca perderíamos nada).
+Quando queremos encontrar algo, normalmente começamos a procurar nos arredeores e ir expandindo o raio de busca a partir do primeiro local em que a busca foi iniciada. Um perfeito exemplo disso é quando queremos encontrar nosso celular: começamos a buscar nos bolsos de nossas roupas e vamos expandindo a área de busca, procurando na bolsa ou na mochila, depois no cômodo em que estamos, em seguida em outros cômodos próximos a esse e continuaremos a procurar nos cômodos mais distantes até finalmente encontrar o que buscamos.
 
 Mas e se você tivesse um móvel onde todos que entram na sua cada podem deixem seus celuares (de preferência algum com uma tomada por perto ou quem sabe uma base de carregamento), não seria mais simples de procurar e consumiria menos tempo até encontrar o seu celular?
 
 Agora imagine que você queira ligar pra alguém através do seu celular e, que já aderiu a ideia do parágrafo anterior, logo tudo o que precisa fazer é ir até o móvel e pegar seu celular. Ao tê-lo em mãos, você o desbloqueia e acessa sua agenda de contatos, mas percebe que seus contatos não estão em ordem forçando você a olhar um por um até encontrar o contato desejado.
 
-Fica claro que organização, e principalmente ordenação, são de vital importância para as atividades mais rotineiras e simples que executamos. Entretanto em um mundo onde sistemas e serviços digitais são cada vez mais frequentes, a ordenação vai muito além de encontrar um contato rápido. Onde gigantescos bancos de dados armazenam desde endereços até dados de pacientes hospitalizados, ordenar adequeada e eficientemente eses diversos tipos de dados significamuito mais do que economizar tempo, também significa evitar o trânsito desviando de uma via congestionada e evitar óbitos garantindo que um paciente em estado grave chegue a tempo no hospital para ser tratado.
+Fica claro que organização, e principalmente ordenação, são de vital importância para as atividades mais rotineiras e simples que executamos. Entretanto em um mundo onde sistemas e serviços digitais são cada vez mais frequentes, a ordenação vai muito além de encontrar um contato rapidamente. Onde gigantescos bancos de dados armazenam desde endereços até dados de pacientes hospitalizados, ordenar adequeada e eficientemente eses diversos tipos de dados significa muito mais do que economizar tempo, também significa evitar o trânsito desviando de uma via congestionada e evitar óbitos garantindo que um paciente em estado grave chegue a tempo no hospital para ser tratado.
 
-E embora cruciais e indispensáveis, aqueles que mantém essa gigantesca infraestrutura digital que permeia praticamente todas as nossas atividades, os algoritmos de ordenação, são, por vezes, considerávelmente simples.
+E embora cruciais e indispensáveis, aqueles que mantém essa gigantesca infraestrutura digital que permeia praticamente todas as nossas atividades, os algoritmos de ordenação, são, por vezes, surpreendentemente simples.
 
 Introdução
 ---------
@@ -331,7 +331,7 @@ void initialize_matrix(int r, int c, int matrix[r][c], int *input) {
 
 ???
 
-Após implementar corretamente a fução `initialize_matrix`, você provavelmente obteve o seguinte *output*:
+Após implementar corretamente a função `initialize_matrix`, você provavelmente obteve o seguinte *output*:
 
 ````c
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 
@@ -420,22 +420,184 @@ A complexidade é **O(1)**.
 
 Acabamos de desenvolver a teoria por trás do algoritmo de ordenação mais eficiente já criado: o **gravity sort**.
 
-Da  
+Dos Gigantes aos Bits
 ---------
 
-Mas... como implementamos  um botão para "ligar" a gravidade? Ao invés de irmos atrás das fórmulas da mecânica clássica, vamos pensar em termos de observações empíricas procedurais.
-
-
-
-Voltando para a representação de pilhas de fragmentos e considerando que a gravidade está "desligada", vamos rotacionar 90° cada uma das caixas até que se obtenha a mesma configuração das fileiras de contas. 
+Mas... como implementamos  um botão para "ligar" a gravidade? Ao invés de irmos atrás das fórmulas da mecânica clássica, vamos pensar em termos de observações empíricas procedurais. Voltando para a representação de pilhas de fragmentos e considerando que a gravidade está "desligada", vamos rotacionar 90° cada uma das caixas até que se obtenha a mesma configuração das fileiras de contas. 
 
 ![](img/list-bar-frag-rotated.jpg)
 
-A partir do momento que a gravidade é "ligada", é justo pensar que os fragmentos que possuem espaços vazios embaixo irão cair enquanto os que possuem outros fragmentossob eles permanecerão no lugar. Na ocorrência de 
+A partir do momento em que a gravidade é "ligada", falta determinar quais fragmentos irão cair e quais permanecerão no lugar. Mas considerando que estes dois comportamentos (cair ou permanecer no lugar) são exclusivos, ou seja, se um ocorre o outro não pode ocorrer, é justo pensar que existe um critério que define qual dos dois comportamentos ocorerá. 
+
+??? Exercício
+
+A partir do momento que a gravidade é "ligada", qual o critério para um fragmento cair para a fileira abaixo dele?
+
+::: Gabarito
+
+A critério é a presença de espaços vazios sob o fragmento
+
+:::
+
+???
+
+ Portanto, os fragmentos que possuem espaços vazios sob deles irão cair enquanto os que possuem outros fragmentos sob eles permanecerão no lugar. Para comprovar nossa hipótese, basta "ligar" a gravidade fileira a fileira, como mostra a asnimação abaixo:
+
+;gravity_on
 
 
 
+Comprovada a hipótese inicial e com base na animação, podemos dispensar as considerações físicas e  simplesmente replicar o comportamento observado dado o requerimento determinado na etapa anterior. 
 
+
+
+??? Exercício
+
+Implemente a função abaixo com base na hipótese desenvolvida, percorrendo a matriz e verificando se o elemento atual é um espaço vazio e se o elemento acima deste é uma conta. Caso seja, troque-os de posição.
+
+````c
+void gravity(int r, int c, int matrix[r][c]) {
+}
+````
+
+**Obs.:** Lembre-se que os espaços são representados por `0` enquanto os fragmentos (os as contas) são representados por `1` em nossa matriz.
+
+::: Gabarito
+
+````c
+void gravity(int r, int c, int matrix[r][c]) {
+    for (int i = 1; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            if (matrix[i][j] == 0 && matrix[i-1][j] == 1) {
+                matrix[i][j] = 1;
+                matrix[i-1][j] = 0;
+            }
+        }
+    }
+}
+````
+
+:::
+
+???
+
+Após implementar a função `gravity`, você provavelmente obteve o seguinte *output*:
+
+````c
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+````
+
+Mas... algo está estranho. Certamente as contas cairam, mas aparentemente não todas. Isso ocorre por que ao encontrarmos um espaço vazio sob uma conta, apenas esta conta é movimentada, desconsiderando a possibilidade de outras contas estarem acima desta.
+
+Uma vez que o índice de linhas da matriz percorre as fileiras vai de cima para baixo, uma solução simples seria resetaá-lo quando uma troca fosse realizada, dessa forma garantimos que nenhuma das contas fique para trás.
+
+??? Exercício
+
+Modifique a função `gravity` garantindo que as contas não fiquem para trás.
+
+::: Gabarito
+
+````c
+void gravity(int r, int c, int matrix[r][c]) {
+    for (int i = 1; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            if (matrix[i][j] == 0 && matrix[i-1][j] == 1) {
+                matrix[i][j] = 1;
+                matrix[i-1][j] = 0;
+            }
+        }
+    }
+}
+````
+
+:::
+
+???
+
+Após implementar a função `gravity`, você provavelmente obteve o seguinte *output*:
+
+````c
+1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+````
+
+Obtida a matriz propriamente ordenada, precisamos contar a quantidade de contas de cada uma das fileiras na mesma ordem em que se apresentam.
+
+??? Exercício
+
+Desenvolva a função abaixo, realizando a contagem de cada uma das linhas da matriz e atribuindo o valor obtido no vetor de saída.
+
+````c
+void count(int r, int c, int matrix[r][c], int *output) {
+}
+````
+
+**Obs.:** Lembre-se que não há espaço vazio entre as contas de uma mesma fileira, logo encontrar um espaço vazio permite encerrar a contagem sem ter que percorrer a fileira inteira.
+
+::: Gabarito
+
+````c
+void count(int c, int f, int abacus[c][f], int *output) {
+    int val = 0;
+    for (int i = 0; i < c; i++) {
+        for (int j = 0; j < f; j++) {
+            if (abacus[i][j] == 1) {
+                val++;
+            } else {
+                break;
+            }
+        }
+        output[i] = val;
+        val = 0;
+    }
+}
+````
+
+:::
+
+???
+
+Por fim, basta encapsular as funções anteriormente desenvolvidas para obtermos o algoritmo completo
+
+??? Exercício
+
+Desenvolva a função abaixo, encapsulando as demais funções de forma a necessitar apenas dos vetores de entrada e saída como argumentos.
+
+````c
+void gravity_sort(int *input, int *output, int n) {
+}
+````
+
+::: Gabarito
+
+````c
+void gravity_sort(int *input, int *output, int n) {
+    int c = matrix_c(input, n);
+    int r = matrix_r(input, n);
+    int matrix[c][r];
+    initialize_matrix(r, c, matrix, input);
+    gravity(r, c, matrix);
+    count(r, c, matrix, output);
+}
+````
+
+:::
+
+???
+
+Da Antiguidade à Modernidade 
+---------
 
 
 
