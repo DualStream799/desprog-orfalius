@@ -25,7 +25,7 @@ Introdução
 
 Pensando novamente na lista telefônica, considere o seguinte: você possui 7 contatos na sua agenda (sim, você é bem seletivo com relação ao salvar o número de outras pessoas) e que cada um deles começam com uma letra diferente. A conclusão mais óbvia seria "*pensar na ordem alfabética e colocá-los em ordem*", certo? Mas e se, ao invés de letras, pensarmos em letras que tal em números? 
 
-??? Pergunta
+???Exercício
 
 Considerando que os contatos mencionados a lista de contatos abaixo, qual seria o vetor numérico correspondente?
 
@@ -60,7 +60,7 @@ Um Novo Ponto de Vista
 
 Ao invés de pensar no vetor de contatos simplesmente como uma lista de valores, considere uma representação visual do mesmo. Uma forma consideravelmente simples seria transformá-lo em um gráfico de barras onde cada valor é representado pela altura de cada uma das barras.
 
-??? Exercício 1
+???Exercício
 
 Considerando o vetor de valores obtido anteriormente como  o gráfico abaixo, responda:
 
@@ -81,7 +81,7 @@ Se pararmos para pensar, **todos** os algoritmos estudados até agora realizam e
 
 
 
-??? Exercício 2
+???Exercício
 
 Considerando o vetor de valores obtido anteriormente como  o gráfico abaixo, responda:
 
@@ -101,11 +101,11 @@ Poderíamos ordenar os valores mudando os fragmentos de posição, asté se obti
 
 Se pararmos para pensar, **nenhum** dos algoritmos estudados até agora realizam esse tipo de operação. Definitivamente não é a forma mais intuitiva de se abordar um problema de ordenação, mas não se pode negar sua efetividade já que o vetor resultante está correto.
 
-??? Checkpoint
+???Checkpoint
 
 Considernado a segunda forma de ordenação, qual a relação entre a quantidade de fragmentos de uma mesma cor, antes e depois da ordenação ter sido realizada? É necessário mudar todos os fragmentos de lugar?
 
-::: Gabarito
+:::Gabarito
 A quantidade de fragmentos de uma mesma cor se preserva ao longo da operação. Além disso, nem todos os fragmentos precisam ser movidos (basta reparar nas 3 primeiras cores de fragmentos ou ainda a última barra na qual o único fragmento modificado é o do topo).
 :::
 
@@ -117,7 +117,7 @@ Isso significa que necessitamos do MDC (múltiplo divisor comum) dos valores enc
 
 Felizmente, exite um MDC global, ou seja, um número que é diivsor de todos os demais e, portanto, não só independe de quais e quantos números presentes no vetor como também dispensa refazer a busca por um novo MDC. 
 
-??? Reflexão
+???Reflexão
 
 Se ainda não veio nada à sua mente, basta pensar na definição básica de números primos, o que ela diz?  
 
@@ -146,7 +146,7 @@ void display_array(int *input, int n) {
 
 
 
-??? Exercício
+???Exercício
 
 Crie uma função que receba um vetor de inteiros e, para cada um dos valores presentes neste, exiba no terminal um vetor preenchido com `1`.
 
@@ -218,7 +218,7 @@ Agora imagine a mesma disposição, mas desta vez preenchendo uma grade quadricu
 
 Fica claro, portanto, que a quantidade de **linhas** `r` tem relação direta com a quantidade de valores do vetor de contatos, uma vez que cada linha. Já a quantidade de **colunas** `c` tem relação direta com o maior valor do vetor inicial. 
 
-??? Exercício
+???Exercício
 
 implemente duas funções `matrix_r` e `matrix_c` que recebam um vetor de inteiros `v` e seu tamanho `n` e retornem os valores de `r` e `c`, respectivamente:
 
@@ -258,7 +258,7 @@ Com ambos os valores disponíveis podemos por fim, já é possível inicializar 
 
 ```c
 int r = matirx_r(input, n);
-int c = abacus_c(input, n);
+int c = matrix_c(input, n);
 int m[r][c];
 ```
 
@@ -280,7 +280,7 @@ Voltando a representação visual, podemos compreender um espaço vazio como a a
 
 Quanto ao valor que se refere à ◯, já que estamos utilizando `1` para locais ocupados, que tal `0` para os não ocupados? 
 
-??? Exercício
+???Exercício
 
 implemente a função abaixo com base na função `unit_stack` anteriormente implementada, de forma a atribuir corretamente `1`s e `0`s
 
@@ -308,7 +308,7 @@ void display_matrix(int r, int c, int matrix[r][c]) {
 
 !!!
 
-::: Gabarito
+:::Gabarito
 O tamanho `n` do vetor entrada não é passado pois `c`**=**`n`, logo o acesso aos elementos podem ser feitos ao longo da iteração do intervalo `[0:c]`. Com isso, tem-se que:
 
 ````c
@@ -380,11 +380,11 @@ Vamos voltar para a representação de contas elaborada anteriormente, mas dessa
 | 12   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    |
 | 23   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ◯    | ◯    |
 
-??? Exercício
+???Exercício
 
 Agora suponha que você tenha um botão que controla a gravidade () e nesse momento ela está "desligada". Ao apertar o botão e "ligar" a gravidade, qual a distribuição esperada das contas? Mais do que isso, se contarmos cada uma das fileiras de contas, uma a uma, como fica a sequência de valores?
 
-::: Gabarito
+:::Gabarito
 
 A distribuição esperada é a seguinte:
 
@@ -406,11 +406,11 @@ Note que ao contar sequencialmente cada uma das fileiras de contas obtemos o vet
 
 Por mais absurdo que possa parecer um botão que controle a gravidade, comprenda o que acabamos de fazer: através de uma única ação (a de apertar o botão), ordernamos o vetor inicialmente recebido. 
 
-??? Checkpoint
+???Checkpoint
 
 Pensando em termos de complexidade, qual a complexidade dessa ordenação?
 
-::: Gabarito
+:::Gabarito
 
 A complexidade é **O(1)**.
 
@@ -429,11 +429,11 @@ Mas... como implementamos  um botão para "ligar" a gravidade? Ao invés de irmo
 
 A partir do momento em que a gravidade é "ligada", falta determinar quais fragmentos irão cair e quais permanecerão no lugar. Mas considerando que estes dois comportamentos (cair ou permanecer no lugar) são exclusivos, ou seja, se um ocorre o outro não pode ocorrer, é justo pensar que existe um critério que define qual dos dois comportamentos ocorerá. 
 
-??? Exercício
+???Exercício
 
 A partir do momento que a gravidade é "ligada", qual o critério para um fragmento cair para a fileira abaixo dele?
 
-::: Gabarito
+:::Gabarito
 
 A critério é a presença de espaços vazios sob o fragmento
 
@@ -451,7 +451,7 @@ Comprovada a hipótese inicial e com base na animação, podemos dispensar as co
 
 
 
-??? Exercício
+???Exercício
 
 Implemente a função abaixo com base na hipótese desenvolvida, percorrendo a matriz e verificando se o elemento atual é um espaço vazio e se o elemento acima deste é uma conta. Caso seja, troque-os de posição.
 
@@ -462,7 +462,7 @@ void gravity(int r, int c, int matrix[r][c]) {
 
 **Obs.:** Lembre-se que os espaços são representados por `0` enquanto os fragmentos (os as contas) são representados por `1` em nossa matriz.
 
-::: Gabarito
+:::Gabarito
 
 ````c
 void gravity(int r, int c, int matrix[r][c]) {
@@ -497,11 +497,11 @@ Mas... algo está estranho. Certamente as contas cairam, mas aparentemente não 
 
 Uma vez que o índice de linhas da matriz percorre as fileiras vai de cima para baixo, uma solução simples seria resetaá-lo quando uma troca fosse realizada, dessa forma garantimos que nenhuma das contas fique para trás.
 
-??? Exercício
+???Exercício
 
 Modifique a função `gravity` garantindo que as contas não fiquem para trás.
 
-::: Gabarito
+:::Gabarito
 
 ````c
 void gravity(int r, int c, int matrix[r][c]) {
@@ -545,7 +545,7 @@ void count(int r, int c, int matrix[r][c], int *output) {
 
 **Obs.:** Lembre-se que não há espaço vazio entre as contas de uma mesma fileira, logo encontrar um espaço vazio permite encerrar a contagem sem ter que percorrer a fileira inteira.
 
-::: Gabarito
+:::Gabarito
 
 ````c
 void count(int c, int f, int abacus[c][f], int *output) {
@@ -570,7 +570,7 @@ void count(int c, int f, int abacus[c][f], int *output) {
 
 Por fim, basta encapsular as funções anteriormente desenvolvidas para obtermos o algoritmo completo
 
-??? Exercício
+???Exercício
 
 Desenvolva a função abaixo, encapsulando as demais funções de forma a necessitar apenas dos vetores de entrada e saída como argumentos.
 
@@ -579,7 +579,7 @@ void gravity_sort(int *input, int *output, int n) {
 }
 ````
 
-::: Gabarito
+:::Gabarito
 
 ````c
 void gravity_sort(int *input, int *output, int n) {
@@ -596,322 +596,68 @@ void gravity_sort(int *input, int *output, int n) {
 
 ???
 
-Da Antiguidade à Modernidade 
+Limite do Espaço-Tempo
 ---------
 
+Uma vez implementado o algoritmo de ordenação corretamente, podemos agora fazer as análises de complexidade.
 
+Pensando primeiramente em termos de uso de memória, e considerando que é recebido um vetor de inteiros como entrada e outro vetor de saída de mesmo tamanho sem realizar cópias do original, poderia-se dizer que a complexidade é **O(n)**, sendo **n** o tamanho de ambos os vetores .
 
+Entretanto, diferentemente do que acreditava Ovídio, os fins não justificam os meios neste caso, pois no meio do processo criamos uma matriz de contas e o uso de memória se traduz ao tamanho dessa matriz, onde sua complexidade depende dos valores que a definem. Logo a complexidade de uso de memória é **O(r*c)**, onde **r** é o tamanho *n* do vetor de entrada e **c** o maior valor dentro desse vetor.
 
+???Exercício
 
+Considere que o valor `100` fosse adicionado ao vetor de entrada anteriormente utilizado, sendo agora`[16, 25, 13, 4, 20, 12, 23, 100]`, como ficaria a matriz ordenada? (Represente-a em função de valores binários).
 
+:::Gabarito
 
+```c
+1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+```
 
+:::
 
+???
 
+Se esse exemplo não foi o suficiente, pense como seria a matriz se adicionarmos `1000` ou `100000` ao vetor de entrada. Fica claro que basta um valor maior do que os demais para que o consumo de memória aumente exageradamente, apenas para alocar corretamente a matriz.
 
-
-
-
-
-Apos a apresentação, tem-se algumas conclusoes a respeito do Gravity sort:
-
-1. **Alto desempenho** quando utilizado em algum hardware.
-2. **Dificuldade** de implementacao computacional.
-
-Tal dificuldade se da pois **deve-se criar uma maneira do computador realizar essa operacao** - que para nos, parece simples - de "queda das bolinhas".
-
-
-
-
-
-Nada muito difícil não é mesmo? Por fim, basta aplicarmos "gravidade" à matriz `abacus` para não só termos o vetor ordenado mas também utilizando apenas uma modificação, o que resulta em complexidade $$O(1)$$.
-
-Mas... como implementamos "gravidade" ?
-
-Imaginando a matriz que representa um ábaco
-
-
+Bom, certamente o *gravity sort* não é a melhor opção em termos de economia memória, mas pelo menos a complexidade de tempo é a menor possível, sendo **O(1)**, certo? Então... você se lembra que quantos *loops* foram utilizados durante a implementação? Não há como o código desenvolvido possuir complexidade **O(1)**.
 
 ??? Pergunta
 
 Você conseguiria pensar em uma implementação na qual garantisse a complexidade teórica $$O(1)$$ ?
 
 ::: Gabarito
-Este é um exemplo de gabarito, entre `md :::`.
+Se a resposta foi sim, parabéns você é um expert em desenvolvimentos de algoritmos solucionando o maior problema do *gravity sort*.
 :::
 
 ???
 
-Sabemos que o primeiro loop é tal que acessa cada um dos valores do array inicial e cada um das colunas da matriz do ábaco, portanto sua implementação é 
+Conclusão
+---------
 
+A realidade é que embora a o *gravity sort* seja teoricamente simples, sua dificudade de implementação em *software* é bem mais complexa. E, ainda que possível utilizá-lo em forma de  *hardware*, a verdade é que ainda existiriam outros algoritmos que realizariam as mesmas tarefas mais eficientemente.
 
+Entretanto é inegável que é uma ideia interessante e ainda existem aqueles que buscam soluções para corrigir alguns de seus problemas e melhorias que poderiam ser feitas. Embora a complexidade teórica ainda não tenha sido obtida, uma implementaćão mais eficiente baseada em vetores já existe e, além disso, o conhecimento adquirido por aqueles que se aprofundaram no desenvolvimento de algoritmos ao longo desse processo é imensurável.
 
-```c
-for (int i = 0; i < c; i++) {
-    int val = input[i]
-    for (int j = val; j > 0; j--) {
-        abacus[j][i] = 1;
-	}
-    
-}
-```
+Além disso, é provável que o maior interesse de sua implementação estaria no mundo real baseado em princípios realmente físicos do que em computadores. 
 
+Para ilustrar uma possível aplicação real do *gravity sort* considere uma linha de produção onde diversas máquinas embalam seus produtos paralelamente umas às outras e os produtos já embalados são levados para uma única área. Nesta área, todas as fileiras de produtos devem ser reorganizados de forma aformar uma fila única para depois prosseguirem para o próximo estágio da linha.
 
+ Adicionando um plano inclinado nessa área, as caixas deslizariam para o lado de tal forma que a maior fileira sempre ficasse na parte mais baixa do plano. Dessa forma bastaria apenas uma máquina para instalada do lado mais baixo do plano que controlasse a quantidade de caixas a serem enviadas para o próximo estágio, enquanto o *gravity sort*  gerado pelo plano inclinado seria responsável por abastecer essa nova máquina, garantindo que a maior fileira de produtos esteja em na direção.
 
-```c
-// Online C compiler to run C program online
-#include <stdio.h>
-#define MAX_SIZE 128
+Pode parecer um exemplo simplista, mas pense a quantidade de energia economizada considerando que esse sistema substituiria uma série de esteiras elétricas responsáveis por reazlizar exatamente a mesma fução.
 
-int abacus_c(int *input, int n){
-	int c = 0;
-	for (int i = 0; i < n; i++) {
-        c ++;
-    }
-	return n;
-}
 
-int abacus_f(int *input, int n) {
-	int f = 0;
-	for (int i = 0; i < n; i++) {
-        if (input[i] > f) {
-            f = input[i];
-		}
-    }
-	return f;
-}
 
-void distribute_beads(int c, int f, int abacus[c][f], int *input) {
-	int val;
-	for (int i = 0; i < c; i++) {
-        val = input[i];
-        for (int j = 0; j < f; j++) {
-            if( j < val) {
-                abacus[i][j] = 1;
-            } else {
-                abacus[i][j] = 0;
-            }
-        }
-        printf("\n");
-    }
-}
 
-void show_matrix(int a, int b, int matrix[a][a]) {
-    for (int i = 0; i < a; i++) {
-        for (int j = 0; j < b; j++) {
-            printf("%i", matrix[a][b]);
-        }
-        printf("\n");
-    }
-}
-
-void show_array(int n, int *array) {
-    for (int i = 0; i < n; i++) {
-        printf("%i ", array[n]);
-    }
-}
-
-void gravity(int c, int f, int abacus[c][f]) {
-    for (int j = 0; j < f; j++) {
-        for (int i = 1; i < c; i++) {
-            int val_previous = abacus[i-1][j];
-            int val_current = abacus[i][j];
-            if (val_previous == 1 && val_current == 0) {
-                abacus[i-1][j] = 0;
-                abacus[i][j] = 1;
-                i = 0;
-            }
-        }
-    }
-}
-
-void count(int c, int f, int abacus[c][f], int *output) {
-    int val;
-    for (int i = 1; i < c; i++) {
-        for (int j = 0; j < f; j++) {
-            if (abacus[i][j] == 1) {
-                val++;
-            }
-            if (abacus[i][j] == 0) {
-                break;
-            }
-        }
-        
-        printf("%i ", val);
-        output[i] = val;
-    }
-}
-
-int main() {
-    int n = 7;
-    int input[] = {1, 9, 32, 14, 43, 5, 24};
-    int output[n];
-    int c = abacus_c(input, n);
-    int f = abacus_f(input, n);
-    int abacus[f][c];
-    
-    distribute_beads(c, f, abacus, input);
-    
-    gravity(c, f, abacus);
-    
-    show_matrix(c, f, abacus);
-    
-    count(c, f, abacus, output);
-    
-    show_array(n, output);
-    
-    return 0;
-}
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-Vamos considerar o array abaixo, que deve ser organizado de forma crescente. Note que a operacao de pegar o tamanho do array ja foi realizada.
-
-```
-x[] = {5, 3, 13, 7, 4, 11, 20, 17};
-
-int len = sizeof(x)/sizeof(x[0]);
-```
-
-O array apresenta um total de 8 itens, o que correspondem as 8 "colunas" de um abaco. Sabemos tambem que cada coluna apresenta um numero de "bolinhas", que eh representada pelo numero inteiro correspondente. Logo, o array pode ser melhor visualizado da seguinte forma:
-
-![](C:\Users\Dual Stream\Downloads\vambora\vambora\src\array.png)
-
-Para traduzir isso no mundo computacional, devemos avancar por partes. Primeiro, deve-se **criar a matriz que representa o abaco**, realizando a seguinte operacao:
-
-```c
-unsigned char *beads;
-#define BEAD(i, j) beads[i * max + j]
-
-for (i = 1, max = a[0]; i < len; i++)
-    if (a[i] > max) max = a[i];
-beads = calloc(1, max * len);
-```
-
-Definimos um array  que consta todos os itens - ou "bolinhas" - da matriz, sendo o [[for]] utilizado para checar o inteiro de maior valor do input - no caso do nosso array, 20.
-
-Apos essa operacao, realizamos uma chamada de **calloc**, para alocar memoria no heap de acordo com o tamanho do array de "bolinhas", criando o espaco necessario para a matriz.
-
-!!! Aviso
-Tem algumas diferenças no uso de *malloc* e *calloc*. Pesquise a respeito.
-!!!
-
-```c
-#include <stdio.h>
-#include <stdlib.h>
-
-void gravity_sort(int *a, int len){
-    int i, j, max, sum;
-    unsigned char *beads;
-    #define BEAD(i, j) beads[i * max + j]
-
-    for (i = 1, max = a[0]; i < len; i++)
-        if (a[i] > max) max = a[i];
-    beads = calloc(1, max * len);
-    /* mark the beads */
-    for (i = 0; i < len; i++)
-        for (j = 0; j < a[i]; j++)
-            BEAD(i, j) = 1;
-    for (j = 0; j < max; j++) {
-        /* count how many beads are on each post */
-        for (sum = i = 0; i < len; i++) {
-            sum += BEAD(i, j);
-            BEAD(i, j) = 0;
-        }
-        /* mark bottom sum beads */
-        for (i = len - sum; i < len; i++) BEAD(i, j) = 1;
-    }
-    for (i = 0; i < len; i++) {
-        for (j = 0; j < max && BEAD(i, j); j++);
-        a[i] = j;
-    }
-    free(beads);
-}
-int main()
-{
-    int i, x[] = {5, 3, 13, 7, 4, 11, 20, 17};
-    int len = sizeof(x)/sizeof(x[0]);
-
-    gravity_sort(x, len);
-    
-    for (i = 0; i < len; i++){
-        printf("%d\n", x[i]);
-    }
-    return 0;
-}
-```
-
-
-
-A partir desse monstro acima, podemos tirar algumas conclusoes a respeito do codigo necessario para a implementacao do gravity sort na linguagem C.
-
-
-Você também pode criar
-
-
-1. listas;
-2. ordenadas,
-
-assim como
-
-* listas;
-* não-ordenadas
-
-e imagens. Lembre que todas as imagens devem estar em uma subpasta img.
-
-![](C:\Users\Dual Stream\Downloads\vambora\vambora\src\logo.png)
-
-Para tabelas, usa-se a [notação do
-MultiMarkdown](https://fletcher.github.io/MultiMarkdown-6/syntax/tables.html),
-que é muito flexível. Vale a pena abrir esse link para saber todas as
-possibilidades.
-
-
-| coluna a | coluna b |
-| -------- | -------- |
-| 1        | 2        |
-
-Ao longo de um texto, você pode usar itálico, *negrito*, {red}(vermelho) e
-[[tecla]]. Também pode usar uma equação LaTeX: $f(n) \leq g(n)$. Se for muito
-grande, você pode isolá-la em um parágrafo.
-
-$$\lim_{n \rightarrow \infty} \frac{f(n)}{g(n)} \leq 1$$
-
-Para inserir uma animação, use `md ;` seguido do nome de uma pasta onde as
-imagens estão. Essa pasta também deve estar em img.
-
-;bubble
-
-Você também pode inserir código, inclusive especificando a linguagem.
-
-
-```py
-def f():
-print('hello world')
-```
-
-```c
-void f() {
-printf("hello world\n");
-}
-```
-
-Se não especificar nenhuma, o código fica com colorização de terminal.
-
-```
-hello world
-```
 
 !!! Aviso
 Este é um exemplo de aviso, entre `md !!!`.
