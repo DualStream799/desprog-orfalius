@@ -2,11 +2,6 @@ Gravity sort
 ======
 
 
-
-![](\img\gravitysort.png)
-
-
-
 Introdução
 ---------
 
@@ -596,14 +591,12 @@ void gravity_sort(int *input, int *output, int n) {
 
 ???
 
-Limite do Espaço-Tempo
+Complexidade de memória
 ---------
-
-Uma vez implementado o algoritmo de ordenação corretamente, podemos agora fazer as análises de complexidade.
 
 Pensando primeiramente em termos de uso de memória, e considerando que é recebido um vetor de inteiros como entrada e outro vetor de saída de mesmo tamanho sem realizar cópias do original, poderia-se dizer que a complexidade é **O(n)**, sendo **n** o tamanho de ambos os vetores .
 
-Entretanto, diferentemente do que acreditava Ovídio, os fins não justificam os meios neste caso, pois no meio do processo criamos uma matriz de contas e o uso de memória se traduz ao tamanho dessa matriz, onde sua complexidade depende dos valores que a definem. Logo a complexidade de uso de memória é **O(r*c)**, onde **r** é o tamanho *n* do vetor de entrada e **c** o maior valor dentro desse vetor.
+Entretanto, diferentemente do que acreditava Ovídio, os fins não justificam os meios neste caso, pois no meio do processo criamos uma matriz de contas e o uso de memória se traduz ao tamanho dessa matriz, onde sua complexidade depende dos valores que a definem, onde **r** é o tamanho *n* do vetor de entrada e **c** o maior valor dentro desse vetor.
 
 ???Exercício
 
@@ -628,7 +621,12 @@ Considere que o valor `100` fosse adicionado ao vetor de entrada anteriormente u
 
 Se esse exemplo não foi o suficiente, pense como seria a matriz se adicionarmos `1000` ou `100000` ao vetor de entrada. Fica claro que basta um valor maior do que os demais para que o consumo de memória aumente exageradamente, apenas para alocar corretamente a matriz.
 
-Bom, certamente o *gravity sort* não é a melhor opção em termos de economia memória, mas pelo menos a complexidade de tempo é a menor possível, sendo **O(1)**, certo? Então... você se lembra que quantos *loops* foram utilizados durante a implementação? Não há como o código desenvolvido possuir complexidade **O(1)**.
+Por causa disso, o *gravity sort* é detentor de recordes quanto ao desperdício de memória. Os custos de memória extra excedem os custos de armazenamento do próprio vetor. Sua complexidade de memória é **O(n^2)** em média.
+
+Complexidade de Tempo
+---------
+
+Bom, certamente o *gravity sort* não é a melhor opção em termos de economia de memória, mas pelo menos o gasto de tempo é a menor possível, sendo sua complexidade **O(1)**, certo? Então... você se lembra que quantos *loops* foram utilizados durante a implementação? Mesmo sem calcular eNão há como o código desenvolvido possuir complexidade **O(1)**.
 
 ??? Pergunta
 
@@ -640,36 +638,28 @@ Se a resposta foi sim, parabéns você é um expert em desenvolvimentos de algor
 
 ???
 
+Mas então, qual a real complexidade desse algoritmo?
+
+As implementações analógica e de hardware podem atingir complexidade de O(n); entretanto, a implementação desse algoritmo tende a ser significativamente mais lenta no software e só pode ser usado para classificar listas de inteiros positivos.
+
+A complexidade do tempo de execução do algoritmo varia de **O(1)** a **O(S)**, sendo **S** a soma dos números de entrada, dependendo da perspectiva do usuário. Finalmente, depende de uma das três implementações possíveis do algoritmo.
+
+1. Para **O(1)**: Soltar todos os contas simultaneamente. Essa complexidade não pode ser implementada na prática.
+2. Para **O(√n)**: Em um modelo físico realista que usa a gravidade, o tempo que se leva para deixar os contas caírem é proporcional à raiz quadrada da altura máxima, que é proporcional a **n**.
+3. Para **O(n)**: Os contas são movidos uma linha de cada vez. É o caso das soluções analógica e de *hardware*.
+4. Para **O(S)**: Cada conta é movido individualmente. Este é o caso quando a classificação de contas é implementada sem um mecanismo para auxiliar na localização de espaços vazios abaixo dos mesmo. É o caso das implementações de *software*.
+
 Conclusão
 ---------
 
 A realidade é que embora a o *gravity sort* seja teoricamente simples, sua dificudade de implementação em *software* é bem mais complexa. E, ainda que possível utilizá-lo em forma de  *hardware*, a verdade é que ainda existiriam outros algoritmos que realizariam as mesmas tarefas mais eficientemente.
 
-Entretanto é inegável que é uma ideia interessante e ainda existem aqueles que buscam soluções para corrigir alguns de seus problemas e melhorias que poderiam ser feitas. Embora a complexidade teórica ainda não tenha sido obtida, uma implementaćão mais eficiente baseada em vetores já existe e, além disso, o conhecimento adquirido por aqueles que se aprofundaram no desenvolvimento de algoritmos ao longo desse processo é imensurável.
+Entretanto é inegável que é uma ideia interessante e ainda existem aqueles que buscam soluções para corrigir alguns de seus problemas e melhorias que poderiam ser feitas. Embora a complexidade teórica ainda não tenha sido obtida, uma implementação mais eficiente baseada em vetores já existe e, além disso, o conhecimento adquirido por aqueles que se aprofundaram no desenvolvimento de algoritmos ao longo desse processo é imensurável.
 
-Além disso, é provável que o maior interesse de sua implementação estaria no mundo real baseado em princípios realmente físicos do que em computadores. 
+Além disso, é provável que o maior interesse de sua implementação estaria no mundo real baseado em princípios  físicos ao invés de princípios de computa ção.
 
 Para ilustrar uma possível aplicação real do *gravity sort* considere uma linha de produção onde diversas máquinas embalam seus produtos paralelamente umas às outras e os produtos já embalados são levados para uma única área. Nesta área, todas as fileiras de produtos devem ser reorganizados de forma aformar uma fila única para depois prosseguirem para o próximo estágio da linha.
 
  Adicionando um plano inclinado nessa área, as caixas deslizariam para o lado de tal forma que a maior fileira sempre ficasse na parte mais baixa do plano. Dessa forma bastaria apenas uma máquina para instalada do lado mais baixo do plano que controlasse a quantidade de caixas a serem enviadas para o próximo estágio, enquanto o *gravity sort*  gerado pelo plano inclinado seria responsável por abastecer essa nova máquina, garantindo que a maior fileira de produtos esteja em na direção.
 
 Pode parecer um exemplo simplista, mas pense a quantidade de energia economizada considerando que esse sistema substituiria uma série de esteiras elétricas responsáveis por reazlizar exatamente a mesma fução.
-
-
-
-
-
-!!! Aviso
-Este é um exemplo de aviso, entre `md !!!`.
-!!!
-
-
-??? Exercício
-
-Este é um exemplo de exercício, entre `md ???`.
-
-::: Gabarito
-Este é um exemplo de gabarito, entre `md :::`.
-:::
-
-???
