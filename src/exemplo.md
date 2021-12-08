@@ -18,7 +18,7 @@ E embora cruciais e indispensáveis, aqueles que mantém essa gigantesca infraes
 Introdução
 ---------
 
-Pensando novamente na lista telefônica, considere o seguinte: você possui 7 contatos na sua agenda (sim, você é bem seletivo com relação ao salvar o número de outras pessoas) e que cada um deles começam com uma letra diferente. A conclusão mais óbvia seria "*pensar na ordem alfabética e colocá-los em ordem*", certo? Mas e se, ao invés de letras, pensarmos em letras que tal em números? 
+Pensando novamente na lista telefônica, considere o seguinte: você possui 7 contatos na sua agenda (sim, você é bem seletivo com relação ao salvar o número de outras pessoas) e que cada um deles começam com uma letra diferente. A conclusão mais óbvia seria "*pensar na ordem alfabética e colocá-los em ordem*", certo? Mas e se, ao invés de letras, pensarmos em números? 
 
 ???Exercício
 
@@ -57,7 +57,7 @@ Ao invés de pensar no vetor de contatos simplesmente como uma lista de valores,
 
 ???Exercício
 
-Considerando o vetor de valores obtido anteriormente como  o gráfico abaixo, responda:
+Considerando o vetor de valores obtido anteriormente como  o gráfico abaixo, onde cada elemento do vetor é representado como uma barra cuja altura representa seu valor numérico, responda:
 
 ![](/list-bar-unit.jpg)
 
@@ -78,7 +78,7 @@ Se pararmos para pensar, **todos** os algoritmos estudados até agora realizam e
 
 ???Exercício
 
-Considerando o vetor de valores obtido anteriormente como  o gráfico abaixo, responda:
+Considerando o vetor de valores obtido anteriormente como o gráfico abaixo, onde cada elemento do vetor é representado como uma pilha de fragmentos cuja altura representa seu valor numérico, responda:
 
 ![](/list-bar-frag.jpg)
 
@@ -100,7 +100,7 @@ Se pararmos para pensar, **nenhum** dos algoritmos estudados até agora realizam
 
 Considernado a segunda forma de ordenação, qual a relação entre a quantidade de fragmentos de uma mesma cor, antes e depois da ordenação ter sido realizada? É necessário mudar todos os fragmentos de lugar?
 
-:::Gabarito
+::: Gabarito
 A quantidade de fragmentos de uma mesma cor se preserva ao longo da operação. Além disso, nem todos os fragmentos precisam ser movidos (basta reparar nas 3 primeiras cores de fragmentos ou ainda a última barra na qual o único fragmento modificado é o do topo).
 :::
 
@@ -108,9 +108,9 @@ A quantidade de fragmentos de uma mesma cor se preserva ao longo da operação. 
 
 Portanto, fica claro que, uma forma possível, ainda que menos usual, de se organizar um vetor numérico é tornando cada valor como uma pilha de fragmentos. Entretanto para que esse método funcione é necessário que cada um dos fragmentos de qualquer uma das pilhas possuam a mesma "altura", ou seja, que a divisão da barra em pilhas seja tal que não sobre fragmentos de tamanhos diferentes na mesma linha.
 
-Isso significa que necessitamos do MDC (múltiplo divisor comum) dos valores encontrados nessa lista, obtendo os múltiplos de cada um dos valores e posteriormente obter o MDC deles. Entretanto cada novo valor inserido nessa lista potencialmente poderia alterar o MDC atual o que faria com que um algoritmo espec;ifico acessasse todos os valores até calcular o novo MDC, fazendo com que haja um consumo de tempo e recursos desnecessário.
+Isso significa que necessitamos do MDC (múltiplo divisor comum) dos valores encontrados nessa lista, obtendo os múltiplos de cada um dos valores e posteriormente obter o MDC deles. Entretanto cada novo valor inserido nessa lista potencialmente poderia alterar o MDC atual o que faria com que um algoritmo específico acessasse todos os valores até calcular o novo MDC, fazendo com que haja um consumo de tempo e recursos desnecessário.
 
-Felizmente, exite um MDC global, ou seja, um número que é diivsor de todos os demais e, portanto, não só independe de quais e quantos números presentes no vetor como também dispensa refazer a busca por um novo MDC. 
+Felizmente, exite um MDC global, ou seja, um número que é divisor de todos os demais e, portanto, não só independe de quais e quantos números presentes no vetor como também dispensa refazer a busca por um novo MDC. 
 
 ???Reflexão
 
@@ -136,12 +136,9 @@ void display_array(int *input, int n) {
     }
 }
 ````
-
 !!!
 
-
-
-???Exercício
+??? Exercício
 
 Crie uma função que receba um vetor de inteiros e, para cada um dos valores presentes neste, exiba no terminal um vetor preenchido com `1`.
 
@@ -213,7 +210,7 @@ Agora imagine a mesma disposição, mas desta vez preenchendo uma grade quadricu
 
 Fica claro, portanto, que a quantidade de **linhas** `r` tem relação direta com a quantidade de valores do vetor de contatos, uma vez que cada linha. Já a quantidade de **colunas** `c` tem relação direta com o maior valor do vetor inicial. 
 
-???Exercício
+??? Exercício
 
 implemente duas funções `matrix_r` e `matrix_c` que recebam um vetor de inteiros `v` e seu tamanho `n` e retornem os valores de `r` e `c`, respectivamente:
 
@@ -303,7 +300,7 @@ void display_matrix(int r, int c, int matrix[r][c]) {
 
 !!!
 
-:::Gabarito
+::: Gabarito
 O tamanho `n` do vetor entrada não é passado pois `c`**=**`n`, logo o acesso aos elementos podem ser feitos ao longo da iteração do intervalo `[0:c]`. Com isso, tem-se que:
 
 ````c
@@ -375,11 +372,11 @@ Vamos voltar para a representação de contas elaborada anteriormente, mas dessa
 | 12   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    | ◯    |
 | 23   | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ⚫    | ◯    | ◯    |
 
-???Exercício
+??? Exercício
 
-Agora suponha que você tenha um botão que controla a gravidade () e nesse momento ela está "desligada". Ao apertar o botão e "ligar" a gravidade, qual a distribuição esperada das contas? Mais do que isso, se contarmos cada uma das fileiras de contas, uma a uma, como fica a sequência de valores?
+Agora suponha que você tenha um botão que controla a gravidade e que, nesse momento, ela está "desligada". Ao apertar o botão e "ligar" a gravidade, qual a distribuição esperada das contas? Mais do que isso, se contarmos cada uma das fileiras de contas, uma a uma, como fica a sequência de valores?
 
-:::Gabarito
+::: Gabarito
 
 A distribuição esperada é a seguinte:
 
@@ -401,11 +398,11 @@ Note que ao contar sequencialmente cada uma das fileiras de contas obtemos o vet
 
 Por mais absurdo que possa parecer um botão que controle a gravidade, comprenda o que acabamos de fazer: através de uma única ação (a de apertar o botão), ordernamos o vetor inicialmente recebido. 
 
-???Checkpoint
+??? Checkpoint
 
 Pensando em termos de complexidade, qual a complexidade dessa ordenação?
 
-:::Gabarito
+::: Gabarito
 
 A complexidade é **O(1)**.
 
@@ -424,11 +421,11 @@ Mas... como implementamos  um botão para "ligar" a gravidade? Ao invés de irmo
 
 A partir do momento em que a gravidade é "ligada", falta determinar quais fragmentos irão cair e quais permanecerão no lugar. Mas considerando que estes dois comportamentos (cair ou permanecer no lugar) são exclusivos, ou seja, se um ocorre o outro não pode ocorrer, é justo pensar que existe um critério que define qual dos dois comportamentos ocorerá. 
 
-???Exercício
+??? Exercício
 
 A partir do momento que a gravidade é "ligada", qual o critério para um fragmento cair para a fileira abaixo dele?
 
-:::Gabarito
+::: Gabarito
 
 A critério é a presença de espaços vazios sob o fragmento
 
@@ -446,7 +443,7 @@ Comprovada a hipótese inicial e com base na animação, podemos dispensar as co
 
 
 
-???Exercício
+??? Exercício
 
 Implemente a função abaixo com base na hipótese desenvolvida, percorrendo a matriz e verificando se o elemento atual é um espaço vazio e se o elemento acima deste é uma conta. Caso seja, troque-os de posição.
 
@@ -457,7 +454,7 @@ void gravity(int r, int c, int matrix[r][c]) {
 
 **Obs.:** Lembre-se que os espaços são representados por `0` enquanto os fragmentos (os as contas) são representados por `1` em nossa matriz.
 
-:::Gabarito
+::: Gabarito
 
 ````c
 void gravity(int r, int c, int matrix[r][c]) {
@@ -490,13 +487,13 @@ Após implementar a função `gravity`, você provavelmente obteve o seguinte *o
 
 Mas... algo está estranho. Certamente as contas cairam, mas aparentemente não todas. Isso ocorre por que ao encontrarmos um espaço vazio sob uma conta, apenas esta conta é movimentada, desconsiderando a possibilidade de outras contas estarem acima desta.
 
-Uma vez que o índice de linhas da matriz percorre as fileiras vai de cima para baixo, uma solução simples seria resetaá-lo quando uma troca fosse realizada, dessa forma garantimos que nenhuma das contas fique para trás.
+Uma vez que o índice de linhas da matriz que percorre as fileiras vai de cima para baixo, uma solução simples seria resetá-lo quando uma troca fosse realizada, dessa forma garantimos que nenhuma das contas fique para trás.
 
-???Exercício
+??? Exercício
 
 Modifique a função `gravity` garantindo que as contas não fiquem para trás.
 
-:::Gabarito
+::: Gabarito
 
 ````c
 void gravity(int r, int c, int matrix[r][c]) {
@@ -505,6 +502,7 @@ void gravity(int r, int c, int matrix[r][c]) {
             if (matrix[i][j] == 0 && matrix[i-1][j] == 1) {
                 matrix[i][j] = 1;
                 matrix[i-1][j] = 0;
+                i = 0;
             }
         }
     }
@@ -540,14 +538,14 @@ void count(int r, int c, int matrix[r][c], int *output) {
 
 **Obs.:** Lembre-se que não há espaço vazio entre as contas de uma mesma fileira, logo encontrar um espaço vazio permite encerrar a contagem sem ter que percorrer a fileira inteira.
 
-:::Gabarito
+::: Gabarito
 
 ````c
-void count(int c, int f, int abacus[c][f], int *output) {
+void count(int c, int f, int matrix[c][f], int *output) {
     int val = 0;
     for (int i = 0; i < c; i++) {
         for (int j = 0; j < f; j++) {
-            if (abacus[i][j] == 1) {
+            if (matrix[i][j] == 1) {
                 val++;
             } else {
                 break;
@@ -565,7 +563,7 @@ void count(int c, int f, int abacus[c][f], int *output) {
 
 Por fim, basta encapsular as funções anteriormente desenvolvidas para obtermos o algoritmo completo
 
-???Exercício
+??? Exercício
 
 Desenvolva a função abaixo, encapsulando as demais funções de forma a necessitar apenas dos vetores de entrada e saída como argumentos.
 
@@ -574,7 +572,7 @@ void gravity_sort(int *input, int *output, int n) {
 }
 ````
 
-:::Gabarito
+::: Gabarito
 
 ````c
 void gravity_sort(int *input, int *output, int n) {
@@ -591,18 +589,18 @@ void gravity_sort(int *input, int *output, int n) {
 
 ???
 
-Complexidade de memória
+Complexidade de Memória
 ---------
 
 Pensando primeiramente em termos de uso de memória, e considerando que é recebido um vetor de inteiros como entrada e outro vetor de saída de mesmo tamanho sem realizar cópias do original, poderia-se dizer que a complexidade é **O(n)**, sendo **n** o tamanho de ambos os vetores .
 
 Entretanto, diferentemente do que acreditava Ovídio, os fins não justificam os meios neste caso, pois no meio do processo criamos uma matriz de contas e o uso de memória se traduz ao tamanho dessa matriz, onde sua complexidade depende dos valores que a definem, onde **r** é o tamanho *n* do vetor de entrada e **c** o maior valor dentro desse vetor.
 
-???Exercício
+??? Exercício
 
 Considere que o valor `100` fosse adicionado ao vetor de entrada anteriormente utilizado, sendo agora`[16, 25, 13, 4, 20, 12, 23, 100]`, como ficaria a matriz ordenada? (Represente-a em função de valores binários).
 
-:::Gabarito
+::: Gabarito
 
 ```c
 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
@@ -621,12 +619,12 @@ Considere que o valor `100` fosse adicionado ao vetor de entrada anteriormente u
 
 Se esse exemplo não foi o suficiente, pense como seria a matriz se adicionarmos `1000` ou `100000` ao vetor de entrada. Fica claro que basta um valor maior do que os demais para que o consumo de memória aumente exageradamente, apenas para alocar corretamente a matriz.
 
-Por causa disso, o *gravity sort* é detentor de recordes quanto ao desperdício de memória. Os custos de memória extra excedem os custos de armazenamento do próprio vetor. Sua complexidade de memória é **O(n^2)** em média.
+Por causa disso, o *gravity sort* é detentor de recordes quanto ao desperdício de memória. Os custos de memória extra excedem os custos de armazenamento do próprio vetor. Sua complexidade de memória é **O(n²)** em média.
 
 Complexidade de Tempo
 ---------
 
-Bom, certamente o *gravity sort* não é a melhor opção em termos de economia de memória, mas pelo menos o gasto de tempo é a menor possível, sendo sua complexidade **O(1)**, certo? Então... você se lembra que quantos *loops* foram utilizados durante a implementação? Mesmo sem calcular eNão há como o código desenvolvido possuir complexidade **O(1)**.
+Bom, certamente o *gravity sort* não é a melhor opção em termos de economia de memória, mas pelo menos o gasto de tempo é a menor possível, sendo sua complexidade **O(1)**, certo? Então... você se lembra que quantos *loops* foram utilizados durante a implementação? Mesmo sem calcular explicitamente, não há como o código desenvolvido possuir complexidade **O(1)**.
 
 ??? Pergunta
 
@@ -640,7 +638,7 @@ Se a resposta foi sim, parabéns você é um expert em desenvolvimentos de algor
 
 Mas então, qual a real complexidade desse algoritmo?
 
-As implementações analógica e de hardware podem atingir complexidade de O(n); entretanto, a implementação desse algoritmo tende a ser significativamente mais lenta no software e só pode ser usado para classificar listas de inteiros positivos.
+As implementações analógica e de hardware podem atingir complexidade de **O(n)** entretanto, a implementação desse algoritmo tende a ser significativamente mais lenta no software e só pode ser usado para classificar listas de inteiros positivos.
 
 A complexidade do tempo de execução do algoritmo varia de **O(1)** a **O(S)**, sendo **S** a soma dos números de entrada, dependendo da perspectiva do usuário. Finalmente, depende de uma das três implementações possíveis do algoritmo.
 
@@ -656,7 +654,7 @@ A realidade é que embora a o *gravity sort* seja teoricamente simples, sua difi
 
 Entretanto é inegável que é uma ideia interessante e ainda existem aqueles que buscam soluções para corrigir alguns de seus problemas e melhorias que poderiam ser feitas. Embora a complexidade teórica ainda não tenha sido obtida, uma implementação mais eficiente baseada em vetores já existe e, além disso, o conhecimento adquirido por aqueles que se aprofundaram no desenvolvimento de algoritmos ao longo desse processo é imensurável.
 
-Além disso, é provável que o maior interesse de sua implementação estaria no mundo real baseado em princípios  físicos ao invés de princípios de computa ção.
+Além disso, é provável que o maior interesse de sua implementação estaria no mundo real baseado em princípios  físicos ao invés de princípios de computação.
 
 Para ilustrar uma possível aplicação real do *gravity sort* considere uma linha de produção onde diversas máquinas embalam seus produtos paralelamente umas às outras e os produtos já embalados são levados para uma única área. Nesta área, todas as fileiras de produtos devem ser reorganizados de forma aformar uma fila única para depois prosseguirem para o próximo estágio da linha.
 
