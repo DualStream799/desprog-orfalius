@@ -30,7 +30,7 @@ Considerando que os contatos mencionados a lista de contatos abaixo, qual seria 
 
 Provavelmente você utilizou a posição das iniciais no alfabeto para realizar a conversão, certo?
 
-![](img/alphabet-to-numeric.png)
+![](/alphabet-to-numeric.png)
 
 Dessa forma a conversão da lista de contatos para um vetor numérico pode ser feita de seguinte forma:
 
@@ -59,14 +59,14 @@ Ao invés de pensar no vetor de contatos simplesmente como uma lista de valores,
 
 Considerando o vetor de valores obtido anteriormente como  o gráfico abaixo, responda:
 
-![](img\list-bar-unit.jpg)
+![](/list-bar-unit.jpg)
 
 Em termos visuais, de que forma poderíamos ordenar os valores do vetor numérico?
 
 ::: Gabarito
 Poderíamos ordenar os valores mudando as barras de posição, asté se obtivesse a seguinte representação:
 
-![](img\list-bar-unit-ordened.jpg)
+![](/list-bar-unit-ordened.jpg)
 
 :::
 
@@ -80,7 +80,7 @@ Se pararmos para pensar, **todos** os algoritmos estudados até agora realizam e
 
 Considerando o vetor de valores obtido anteriormente como  o gráfico abaixo, responda:
 
-![](img\list-bar-frag.jpg)
+![](/list-bar-frag.jpg)
 
 Em termos visuais, de que forma poderíamos ordenar os valores do vetor numérico?
 
@@ -88,7 +88,7 @@ Em termos visuais, de que forma poderíamos ordenar os valores do vetor numéric
 
 Poderíamos ordenar os valores mudando os fragmentos de posição, asté se obtivesse a seguinte representação:
 
-![](img\list-bar-frag-ordened.jpg)
+![](/list-bar-frag-ordened.jpg)
 
 :::
 
@@ -118,7 +118,7 @@ Se ainda não veio nada à sua mente, basta pensar na definição básica de nú
 
 ::: Gabarito
 
-![](img\prime-numbers.png)
+![](/prime-numbers.png)
 
 :::
 
@@ -347,7 +347,7 @@ Isso sempre ocorreu e continua ocorrendo. Desde a antiguidade, enquanto Platão 
 
 |       Platão        |       Pitágoras        |
 | :-----------------: | :--------------------: |
-| ![](img\platao.jpg) | ![](img\pitagoras.jpg) |
+| ![](/platao.jpg) | ![](/pitagoras.jpg) |
 |  Pai da Filosofia   |   Pai da Matemática    |
 
 Já na era moderna, outro indivíduo que dispensa apresentações resume bem essa ideia através da seguinte frase:
@@ -358,7 +358,7 @@ Apesar das diversas áreas na qual atuou, você provavelmente ouviu falar dele p
 
 |       Isaac Newton        |
 | :-----------------------: |
-| ![](img\isaac-newton.jpg) |
+| ![](/isaac-newton.jpg) |
 |   Pai da Física Moderna   |
 
 Hoje somos nós que os consideramos gigantes e é nos ombros deles que nos apoiamos para ver mais longe ainda. E por que não fazê-lo novamente nesse momento?
@@ -420,7 +420,7 @@ Dos Gigantes aos Bits
 
 Mas... como implementamos  um botão para "ligar" a gravidade? Ao invés de irmos atrás das fórmulas da mecânica clássica, vamos pensar em termos de observações empíricas procedurais. Voltando para a representação de pilhas de fragmentos e considerando que a gravidade está "desligada", vamos rotacionar 90° cada uma das caixas até que se obtenha a mesma configuração das fileiras de contas. 
 
-![](img/list-bar-frag-rotated.jpg)
+![](/list-bar-frag-rotated.jpg)
 
 A partir do momento em que a gravidade é "ligada", falta determinar quais fragmentos irão cair e quais permanecerão no lugar. Mas considerando que estes dois comportamentos (cair ou permanecer no lugar) são exclusivos, ou seja, se um ocorre o outro não pode ocorrer, é justo pensar que existe um critério que define qual dos dois comportamentos ocorerá. 
 
